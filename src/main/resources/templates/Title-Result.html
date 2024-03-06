@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8">
+<title>Result</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+}
+
+
+</style>
+</head>
+<body>
+
+	<div class="container my-3">
+		<div class="row">
+			<div class="col-md-8 mx-auto">
+				<h2>Movie Details</h2>
+
+				<table class="table table-striped " style="width: 100%">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Year</th>
+						<th>Rated</th>
+						<th>Released</th>
+						<th>Genre</th>
+						<th>Director</th>
+						<th>Writer</th>
+						<th>Actors</th>
+						<th>Awards</th>
+						<th>Metascore</th>
+						<th>imdbRating</th>
+						<th>Poster</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr th:each="myMovie : ${movieList}">
+						<td><span th:text="${myMovie.title}"></span></td>
+						<td><span th:text="${myMovie.year}"></span></td>
+						<td><span th:text="${myMovie.rated}"></span></td>
+						<td><span th:text="${myMovie.released}"></span></td>
+						<td><span th:text="${myMovie.genre}"></span></td>
+						<td><span th:text="${myMovie.director}"></span></td>
+						<td><span th:text="${myMovie.writer}"></span></td>
+						<td><span th:text="${myMovie.actors}"></span></td>
+						<td><span th:text="${myMovie.awards}"></span></td>
+						<td><span th:text="${myMovie.metascore}"></span></td>
+						<td><span th:text="${myMovie.imdbRating}"></span></td>
+						<td><span><img th:src="*{'data:image/png;base64,'+ myMovie.encodedImage}" /></span></td>
+					</tr>
+					</tbody>
+				</table>
+
+			</div>
+			
+		</div>
+	</div>
+	
+</body>
+</html>
